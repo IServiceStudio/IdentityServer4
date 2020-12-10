@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace AuthDemo3
@@ -26,7 +28,6 @@ namespace AuthDemo3
             services.AddMemoryCache();
             services.AddScoped<ITicketStore, MemoryCacheTicketStore>();
 
-            //基于Scheme授权
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -48,6 +49,20 @@ namespace AuthDemo3
                     OnSigningIn = async context => { Console.WriteLine("OnSigningIn"); await Task.CompletedTask; },
                     OnSigningOut = async context => { Console.WriteLine("OnSigningOut"); await Task.CompletedTask; }
                 };
+            });
+
+            //基于Policy策略授权
+            services.AddAuthorization(options =>
+            {
+                //内置策略
+                options.AddPolicy("AdminPolicy", policy => policy
+                     .RequireRole("Admin")
+                     .RequireUserName("Admin")
+                     .RequireClaim(ClaimTypes.Name));
+
+                options.AddPolicy("UserPolocy", policy => policy.RequireAssertion(context =>
+                    context.User.HasClaim(c => c.Type == ClaimTypes.Role)
+                    && context.User.Claims.First(c => c.Type.Equals(ClaimTypes.Role)).Value == "Admin"));
             });
         }
 

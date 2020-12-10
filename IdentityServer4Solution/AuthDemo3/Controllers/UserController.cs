@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -104,6 +105,13 @@ namespace AuthDemo3.Controllers
         public IActionResult AdminAndVisitor()
         {
             return Ok($"{HttpContext.User.Claims.Where(c => c.Type == ClaimTypes.Role).First().Value}");
+        }
+
+        [Authorize(Policy = "AdminPolicy")]
+        [HttpGet("NomalPolicy")]
+        public IActionResult NomalPolicy()
+        {
+            return Ok("NomalPolicy");
         }
     }
 }
