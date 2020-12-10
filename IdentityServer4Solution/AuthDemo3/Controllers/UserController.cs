@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -29,12 +30,14 @@ namespace AuthDemo3.Controllers
         }
 
         [HttpGet("loginOut")]
+        [Authorize]
         public async Task LoginOut()
         {
             await HttpContext.SignOutAsync();
         }
 
         [HttpGet("Authentication")]
+        [Authorize]
         public async Task<IActionResult> Authentication()
         {
             var result = await HttpContext.AuthenticateAsync();
@@ -47,6 +50,7 @@ namespace AuthDemo3.Controllers
         }
 
         [HttpGet("Authorization")]
+        [Authorize]
         public async Task<IActionResult> Authorization()
         {
             var result = await HttpContext.AuthenticateAsync();
