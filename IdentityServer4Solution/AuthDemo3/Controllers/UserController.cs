@@ -50,7 +50,7 @@ namespace AuthDemo3.Controllers
         }
 
         [HttpGet("Authorization")]
-        [Authorize]
+        [Authorize(AuthenticationSchemes = "Cookies")]
         public async Task<IActionResult> Authorization()
         {
             var result = await HttpContext.AuthenticateAsync();

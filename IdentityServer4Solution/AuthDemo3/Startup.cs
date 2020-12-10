@@ -25,6 +25,8 @@ namespace AuthDemo3
             services.AddControllers();
             services.AddMemoryCache();
             services.AddScoped<ITicketStore, MemoryCacheTicketStore>();
+
+            //基于Scheme授权
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -34,8 +36,12 @@ namespace AuthDemo3
             }).AddCookie(options =>
             {
                 //cookie写入到服务端
-                options.SessionStore = services.BuildServiceProvider().GetService<ITicketStore>();
-
+                services.AddOptions<CookieAuthenticationOptions>(
+                      CookieAuthenticationDefaults.AuthenticationScheme)
+                        .Configure<ITicketStore>((storeOptions, storeService) =>
+                        {
+                            options.SessionStore = storeService;
+                        });
                 options.Events = new CookieAuthenticationEvents()
                 {
                     OnSignedIn = async context => { Console.WriteLine("OnSignedIn"); await Task.CompletedTask; },
