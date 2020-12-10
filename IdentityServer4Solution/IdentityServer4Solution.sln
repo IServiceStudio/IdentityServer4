@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cookie+Filter", "Cookie+Filter", "{D7603D7B-61F1-4531-B8D0-453A213B407D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthDemo", "AuthDemo\AuthDemo.csproj", "{9904755A-37E5-474B-903C-7B13F1A723B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthDemo", "AuthDemo\AuthDemo.csproj", "{9904755A-37E5-474B-903C-7B13F1A723B3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "鉴权+授权源码解析", "鉴权+授权源码解析", "{B2BA3A4A-925E-4A05-9670-583C83EA8C6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthDemo2", "AuthDemo2\AuthDemo2.csproj", "{ACE6CBE1-D095-41E8-9E40-FE4EDBCC26DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthDemo2", "AuthDemo2\AuthDemo2.csproj", "{ACE6CBE1-D095-41E8-9E40-FE4EDBCC26DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthDemo3", "AuthDemo3\AuthDemo3.csproj", "{A3F8D1C7-0408-4232-8871-285835C0233D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{ACE6CBE1-D095-41E8-9E40-FE4EDBCC26DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACE6CBE1-D095-41E8-9E40-FE4EDBCC26DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACE6CBE1-D095-41E8-9E40-FE4EDBCC26DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3F8D1C7-0408-4232-8871-285835C0233D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3F8D1C7-0408-4232-8871-285835C0233D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3F8D1C7-0408-4232-8871-285835C0233D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3F8D1C7-0408-4232-8871-285835C0233D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9904755A-37E5-474B-903C-7B13F1A723B3} = {D7603D7B-61F1-4531-B8D0-453A213B407D}
 		{ACE6CBE1-D095-41E8-9E40-FE4EDBCC26DF} = {B2BA3A4A-925E-4A05-9670-583C83EA8C6D}
+		{A3F8D1C7-0408-4232-8871-285835C0233D} = {B2BA3A4A-925E-4A05-9670-583C83EA8C6D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A99BECFB-CB94-4BA3-A3E3-7C1E9BD0070F}

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace AuthDemo
+namespace AuthDemo3
 {
     public class Program
     {
