@@ -19,6 +19,8 @@ namespace AuthDemo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            //∆Ù”√Cookie
             services.AddAuthentication()
                 .AddCookie();
         }
