@@ -3,9 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cookie+Session+Filter", "Cookie+Session+Filter", "{D7603D7B-61F1-4531-B8D0-453A213B407D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthDemo", "AuthDemo\AuthDemo.csproj", "{9904755A-37E5-474B-903C-7B13F1A723B3}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9904755A-37E5-474B-903C-7B13F1A723B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9904755A-37E5-474B-903C-7B13F1A723B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9904755A-37E5-474B-903C-7B13F1A723B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9904755A-37E5-474B-903C-7B13F1A723B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9904755A-37E5-474B-903C-7B13F1A723B3} = {D7603D7B-61F1-4531-B8D0-453A213B407D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A99BECFB-CB94-4BA3-A3E3-7C1E9BD0070F}
