@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -13,13 +14,18 @@ namespace AuthDemo3.Controllers
     public class UserController : ControllerBase
     {
         [HttpGet("login")]
-        public async Task<IActionResult> Login(string loginName, string loginPwd)
+        public async Task<IActionResult> Login(string loginName, string loginPwd, string role)
         {
             if (loginName == "admin" && loginPwd == "password")
             {
                 var claim = new ClaimsIdentity("UserIDentity");
                 claim.AddClaim(new Claim(ClaimTypes.Name, loginName));
                 claim.AddClaim(new Claim(ClaimTypes.Email, "iservice@outlook.com"));
+                if (role != null)
+                {
+                    claim.AddClaim(new Claim(ClaimTypes.Role, role));
+                }
+
                 await HttpContext.SignInAsync(new ClaimsPrincipal(claim), new AuthenticationProperties
                 {
                     ExpiresUtc = DateTime.UtcNow.AddMinutes(30)
@@ -77,6 +83,27 @@ namespace AuthDemo3.Controllers
                 await HttpContext.ChallengeAsync();
                 return NotFound("授权失败");
             }
+        }
+
+        [Authorize(Roles = "admin")]
+        [HttpGet("Admin")]
+        public IActionResult Admin()
+        {
+            return Ok("Admin");
+        }
+
+        [Authorize(Roles = "visitor")]
+        [HttpGet("Visitor")]
+        public IActionResult Visitor()
+        {
+            return Ok("Visitor");
+        }
+
+        [Authorize(Roles = "admin,visitor")]
+        [HttpGet("AdminAndVisitor")]
+        public IActionResult AdminAndVisitor()
+        {
+            return Ok($"{HttpContext.User.Claims.Where(c => c.Type == ClaimTypes.Role).First().Value}");
         }
     }
 }
