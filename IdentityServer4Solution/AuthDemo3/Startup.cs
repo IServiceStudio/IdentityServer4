@@ -38,7 +38,7 @@ namespace AuthDemo3
             }
 
             app.UseRouting();
-
+            //启用系统鉴权
             app.UseAuthentication();
             app.UseAuthorization();
 
