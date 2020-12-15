@@ -43,7 +43,7 @@ namespace AuthDemo3
                         {
                             options.SessionStore = storeService;
                         });
-                options.Events = new CookieAuthenticationEvents()
+                options.Events = new CookieAuthenticationEvents()  
                 {
                     OnSignedIn = async context => { Console.WriteLine("OnSignedIn"); await Task.CompletedTask; },
                     OnSigningIn = async context => { Console.WriteLine("OnSigningIn"); await Task.CompletedTask; },
